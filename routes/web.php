@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Movie;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // $movies = Movie::all();
+    $title = 'Movies Gallery';
+    return view('home', ['title' => $title]);
+});
+
+Route::get('/movie/{title}', function ($title) {
+    // $movie = Movie::find($id);
+    return view('movie', ['title' => $title]);
 });
